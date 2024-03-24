@@ -26,7 +26,8 @@ export class HeroService {
   }
 
   // Add a new hero
-  addHero(hero: Hero): Observable<Hero> {
+  addHero(hero: Partial<Hero>): Observable<Hero> {
+    console.log('Testing')
     return this.http.post<Hero>(this.apiUrl, hero);
   }
 

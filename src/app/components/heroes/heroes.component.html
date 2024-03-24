@@ -1,5 +1,7 @@
 <div class="heroes-list">
   <div *ngFor="let hero of heroes" class="hero-card">
-    <app-hero [hero]="hero"></app-hero>
+    <app-hero-card [hero]="hero"></app-hero-card>
   </div>
 </div>
+
+<button routerLink="/hero/create">Create New Hero</button>

@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="hero-image">
+      <img [src]="hero.image" alt="{{ hero.name }}" class="hero-img">
+    </div>
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+    <mat-card-subtitle>Real Name: {{ hero.realName }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ hero.description }}</p>
+  </mat-card-content>
+</mat-card>

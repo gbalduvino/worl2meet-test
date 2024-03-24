@@ -1,1 +1,16 @@
-<p>hero-edit works!</p>
+<h2>Edit Hero</h2>
+<form (submit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="hero.name" required>
+  </div>
+  <div>
+    <label for="realName">Real Name:</label>
+    <input type="text" id="realName" name="realName" [(ngModel)]="hero.realName" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" [(ngModel)]="hero.description" required></textarea>
+  </div>
+  <button type="submit">Update Hero</button>
+</form>

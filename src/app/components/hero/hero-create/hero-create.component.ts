@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Hero } from '../../../models/hero.model';
 import { HeroService } from '../../../services/hero.service';
@@ -17,10 +18,15 @@ export class HeroCreateComponent {
     image: ''
   };
 
-  constructor(private router: Router, private heroService: HeroService) {}
+  constructor(private router: Router, private snackBar: MatSnackBar, private heroService: HeroService) {}
 
   onSubmit(): void {
-    this.heroService.addHero(this.hero).subscribe(heroes => {});
+    this.heroService.addHero(this.hero).subscribe(heroes => {
+      this.snackBar.open('Operation completed successfully', '', {
+        duration: 3000, // Duration in milliseconds
+        panelClass: ['success-snackbar'] // Optional custom CSS class for styling
+      });
+    });
 
     this.router.navigate(['/']);
   }

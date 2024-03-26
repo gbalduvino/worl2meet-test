@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, of } from 'rxjs'
+import { BehaviorSubject, Observable, of } from 'rxjs'
 
 import { Hero } from '../models/hero.model'
 
@@ -8,7 +8,6 @@ import { Hero } from '../models/hero.model'
   providedIn: 'root'
 })
 export class HeroService {
-
   private apiUrl = 'http://example.com/api/heroes'
 
   constructor(private http: HttpClient) { }

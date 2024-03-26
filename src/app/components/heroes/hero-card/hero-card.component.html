@@ -10,5 +10,5 @@
     <p>{{ hero.description }}</p>
   </mat-card-content>
   <mat-icon [routerLink]="['/hero/edit', hero.id]">edit</mat-icon>
-  <mat-icon>delete</mat-icon>
+  <mat-icon (click)="deleteHero()">delete</mat-icon>
 </mat-card>

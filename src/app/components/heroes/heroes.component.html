@@ -1,6 +1,8 @@
+<input type="text" [formControl]="searchControl" placeholder="Search heroes...">
+
 <div class="heroes-list">
-  <div *ngFor="let hero of heroes" class="hero-card">
-    <app-hero-card [hero]="hero"></app-hero-card>
+  <div *ngFor="let hero of filteredHeroes$ | async" class="hero-card">
+    <app-hero-card [hero]="hero" (deleteEvent)="deleteHero($event)"></app-hero-card>
   </div>
 </div>
 

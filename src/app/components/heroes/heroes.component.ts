@@ -33,7 +33,11 @@ export class HeroesComponent implements OnInit {
 
   deleteHero(heroId: number) {
     this.heroService.deleteHero(heroId).subscribe(heroes => {
-      this.heroes = heroes
+      this.heroes = heroes;
+      this.filteredHeroes$ = this.searchControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this.filterHeroes(value || ''))
+      );
     })
   }
 }

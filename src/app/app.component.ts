@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs'
+import { heroesData } from './mock/heroes.mock'
+import { LoaderService } from './services/loader.service'
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'worl2meet-test';
+export class AppComponent implements OnInit {
+  isLoading$?: Observable<boolean>
+
+  constructor(private loaderService: LoaderService) {
+    this.isLoading$ = loaderService.isLoading$
+  }
+
+  ngOnInit(): void {
+    localStorage.setItem('heroes', JSON.stringify(heroesData))
+  }
 }

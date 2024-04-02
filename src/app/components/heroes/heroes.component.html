@@ -1,0 +1,18 @@
+<div class="heroes-list">
+  <div class="heroes-list__options">
+    <mat-form-field class="heroes-list__options__search">
+      <mat-label>Search heroes</mat-label>
+      <input matInput type="text" [formControl]="searchControl">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" routerLink="/hero/create">
+      <mat-icon>add</mat-icon>Add hero
+    </button>
+  </div>
+
+  <div class="heroes-list__cards">
+    <div *ngFor="let hero of filteredHeroes$ | async" class="heroes-list__cards__card">
+      <app-hero-card [hero]="hero" (deleteEvent)="openDeleteDialog($event)"></app-hero-card>
+    </div>
+  </div>
+</div>

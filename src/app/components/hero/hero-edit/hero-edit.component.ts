@@ -1,9 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { Hero } from '../../../models/hero.model';
-import { HeroService } from '../../../services/hero.service';
+import { Component, OnInit } from '@angular/core'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
+import { Hero } from '../../../models/hero.model'
+import { HeroService } from '../../../services/hero.service'
 
 @Component({
   selector: 'app-hero-edit',
@@ -12,28 +13,32 @@ import { HeroService } from '../../../services/hero.service';
 })
 export class HeroEditComponent implements OnInit {
   hero: Hero = {
-    id: 5,
+    id: Math.random(),
     name: '',
     realName: '',
     description: '',
     image: ''
-  };
+  }
 
-  constructor(private router: Router, private route: ActivatedRoute, private heroService: HeroService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private heroService: HeroService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    // Retrieve the hero ID from route parameters
     this.route.params.subscribe(params => {
       const heroId = params['id'];
       this.heroService.getHero(heroId).subscribe(hero => {
         this.hero = hero
       })
-    });
+    })
   }
 
   onSubmit(): void {
-    this.heroService.updateHero(this.hero).subscribe(heroes => {});
+    this.heroService.updateHero(this.hero).subscribe(() => {
+      this.snackBar.open('Hero edited successfully', '', {
+        duration: 3000,
+        panelClass: ['success-snackbar']
+      })
+    })
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/'])
   }
 }

@@ -1,6 +1,6 @@
-<mat-card>
+<mat-card class="hero-card">
   <mat-card-header>
-    <div mat-card-avatar class="hero-image">
+    <div mat-card-avatar class="hero-card__image">
       <img [src]="hero.image" alt="{{ hero.name }}" class="hero-img">
     </div>
     <mat-card-title>{{ hero.name }}</mat-card-title>
@@ -9,6 +9,13 @@
   <mat-card-content>
     <p>{{ hero.description }}</p>
   </mat-card-content>
-  <mat-icon [routerLink]="['/hero/edit', hero.id]">edit</mat-icon>
-  <mat-icon (click)="deleteHero()">delete</mat-icon>
+
+  <div class="hero-card__buttons">
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" [routerLink]="['/hero/edit', hero.id]">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" (click)="deleteHero()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
 </mat-card>

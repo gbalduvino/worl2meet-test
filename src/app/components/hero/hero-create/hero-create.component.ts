@@ -7,7 +7,7 @@ import { HeroService } from '../../../services/hero.service';
 @Component({
   selector: 'app-hero-create',
   templateUrl: './hero-create.component.html',
-  styleUrls: ['./hero-create.component.css']
+  styleUrls: ['./hero-create.component.scss']
 })
 export class HeroCreateComponent {
   hero: Partial<Hero> = {
@@ -23,8 +23,8 @@ export class HeroCreateComponent {
   onSubmit(): void {
     this.heroService.addHero(this.hero).subscribe(heroes => {
       this.snackBar.open('Operation completed successfully', '', {
-        duration: 3000, // Duration in milliseconds
-        panelClass: ['success-snackbar'] // Optional custom CSS class for styling
+        duration: 3000,
+        panelClass: ['success-snackbar']
       });
     });
 

@@ -1,0 +1,24 @@
+.heroes-list {
+  margin: 0 1rem;
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    &__search {
+      width: 25rem;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &__card {
+      width: 30%;
+    }
+  }
+}

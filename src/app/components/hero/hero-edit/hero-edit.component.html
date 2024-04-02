@@ -1,16 +1,27 @@
-<h2>Edit Hero</h2>
-<form (submit)="onSubmit()">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="hero.name" required>
-  </div>
-  <div>
-    <label for="realName">Real Name:</label>
-    <input type="text" id="realName" name="realName" [(ngModel)]="hero.realName" required>
-  </div>
-  <div>
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" [(ngModel)]="hero.description" required></textarea>
-  </div>
-  <button type="submit">Update Hero</button>
-</form>
+<div class="edit-form">
+  <h2>Edit Hero</h2>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" [(ngModel)]="hero.name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Real Name</mat-label>
+    <input matInput type="text" name="realName" [(ngModel)]="hero.realName" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Image URL</mat-label>
+    <input matInput type="text" name="image" [(ngModel)]="hero.image" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput name="description" [(ngModel)]="hero.description" required></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!hero.name || !hero.realName || !hero.image || !hero.description">
+    Edit
+  </button>
+</div>

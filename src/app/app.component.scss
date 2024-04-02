@@ -35,3 +35,11 @@
   background-color: #f44336; /* Red */
   color: white;
 }
+
+.toolbar {
+  margin-bottom: 1rem;
+
+  &__logo {
+    cursor: pointer;
+  }
+}

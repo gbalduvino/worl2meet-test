@@ -19,10 +19,27 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatButtonModule } from '@angular/material/button'
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatDialogModule } from '@angular/material/dialog'
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent, HeroCardComponent, HeroCreateComponent, HeroEditComponent],
-  imports: [BrowserModule, HttpClientModule, MatCardModule, AppRoutingModule, FormsModule, ReactiveFormsModule, MatIconModule, MatSnackBarModule, MatButtonModule, MatInputModule, MatFormFieldModule],
+  declarations: [AppComponent, HeroesComponent, HeroCardComponent, HeroCreateComponent, HeroEditComponent, DeleteDialogComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    MatCardModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatToolbarModule
+  ],
   providers: [HeroService, LoaderService, provideAnimationsAsync(), { provide: HTTP_INTERCEPTORS, useClass: HeroInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

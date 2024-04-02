@@ -1,4 +1,7 @@
-<h1>List of Heroes</h1>
+<mat-toolbar class="toolbar">
+  <span class="toolbar__logo" routerLink="/">My App</span>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
 
 <div *ngIf="isLoading$ | async" class="loader-overlay">

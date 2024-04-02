@@ -12,7 +12,7 @@
 
   <div class="heroes-list__cards">
     <div *ngFor="let hero of filteredHeroes$ | async" class="heroes-list__cards__card">
-      <app-hero-card [hero]="hero" (deleteEvent)="deleteHero($event)"></app-hero-card>
+      <app-hero-card [hero]="hero" (deleteEvent)="openDeleteDialog($event)"></app-hero-card>
     </div>
   </div>
 </div>

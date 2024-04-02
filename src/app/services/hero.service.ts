@@ -26,9 +26,9 @@ export class HeroService {
     return this.http.post<Hero>(this.apiUrl, hero)
   }
 
-  updateHero(hero: Hero): Observable<any> {
+  updateHero(hero: Hero): Observable<Hero> {
     const url = `${this.apiUrl}/${hero.id}`
-    return this.http.put(url, hero)
+    return this.http.put<Hero>(url, hero)
   }
 
   deleteHero(id: number): Observable<any> {
